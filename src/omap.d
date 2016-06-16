@@ -5,7 +5,7 @@
  *
  * It works like associative array with natural order by keys of string type. 
  *
- * Repository: https://github.com/re-pe/d-karr
+ * Repository: https://github.com/re-pe/d-omap
  *  
  */
  
