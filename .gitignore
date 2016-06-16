@@ -1,0 +1,10 @@
+/.project
+/doc
+*.log
+*.lnk
+.dub
+docs.json
+*.html
+*.o
+*.obj
+*.exe
