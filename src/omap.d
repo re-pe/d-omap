@@ -59,27 +59,19 @@ struct OMap(Tval) {
         return tuples;
     } 
     
-    @disable this();
+    static this(){
+        filters!int(`^[0-9]+$`);
+        filters(`#`, `^#[0-9]+$`);
+    }
     
-    this(T)(T arg) if (is(T : typeof(null))){
-        filters!int(`^[0-9]+$`);
-        filters(`#`, `^#[0-9]+$`);
-    } 
-
     this(This arg) {
-        filters!int(`^[0-9]+$`);
-        filters(`#`, `^#[0-9]+$`);
         _append(arg);
     } 
     this(T)(T arg) if (isArray!T || isAssociativeArray!T){
-        filters!int(`^[0-9]+$`);
-        filters(`#`, `^#[0-9]+$`);
         _append(arg);
     } 
 
     this(T... )(T args){
-        filters!int(`^[0-9]+$`);
-        filters(`#`, `^#[0-9]+$`);
         if (args.length > 1) {
             auto tupArr = _args2Tuples(args);
             if (tupArr.length > 0){
@@ -795,10 +787,11 @@ unittest {
 
     writeln( `imap.append( [ "ab" : 91 ], _( "100", 71 ) );` );
     imap.append( [ "ab" : 91 ], _( "100", 71 ) );
-/+     writeln( "imap[] == ", imap[] );
+/+    writeln( "imap[] == ", imap[] );
+    writeln( "imap.filters == ", imap.filters );
     writeln( "imap.keys == ", imap.keys );
     writeln( "imap.values == ", imap.values ); 
-    writeln( "imap.tuples == ", imap.tuples ); +/ 
+    writeln( "imap.tuples == ", imap.tuples ); +/
     
 /+     writeln( `imap.insert(1, _( "ab", 21 ), 15, _( 300, 301 ) );` );
     imap.insert(1, _( "ab", 21 ), 15, _( 300, 301 ));
