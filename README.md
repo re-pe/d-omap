@@ -1,6 +1,6 @@
 ## OMap
 
-In this work I am trying to maintain order of an _associative array_ ensuring that array members always will have keys allowing to display them in appropriate ("natural") order.
+In this work I am trying to maintain order of _map_ (_associative array_) ensuring that array members always will have keys allowing to display them in appropriate i.e _"natural"_ order.
 
 ### Usage
 
